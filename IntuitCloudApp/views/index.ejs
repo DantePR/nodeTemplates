@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>my mongo test</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Test</h1>
+    <p>Welcome to Test</p>
+    
+    
+    
+    <form id="TransForm" action="/mockTrans" method="post"  role="form">
+   											     <label for="type" 
+														data-i18n="machines.insertrow.description"></label> <input
+														type="text" class="form-control myclear" name="type" id="type"
+														 >
+														 	     <label for="amount" 
+														data-i18n="machines.insertrow.description"></label> <input
+														type="text" class="form-control myclear" name="amount" id="amount"
+														 >
+														 <button type="submit" id="insertsubmit" class="mylocale" ></button>
+   											
+   											</form> 
+    
+    
+  
+        <table id="myTransactions" >
+													<thead>
+														<tr>
+															<th>ID</th>
+															<th>Type</th>
+
+															<th>Amount</th>
+														
+														</tr>
+													</thead>
+													<tbody>
+
+													</tbody>
+												</table>
+    
+ 
+    
+    
+   											
+    
+    
+    
+  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>  
+    
+    
+    <script type="text/javascript">
+			$(document).ready(function() {
+				
+				$.getJSON("/transaction",function(jsondata) {
+					//console.log(jsondata);
+					$('#myTransactions tbody').empty();
+					
+					
+					 for (var x in jsondata){
+						
+						 var displayName = "";
+						var d = jsondata[x];
+						 console.log(d);
+						var html ="<tr>"+
+					    
+				    	"<td>" +d._id+ "</td>"+
+					    "<td>" +d.type+"</td>"+
+					    //"<td>" +custButton+deleteButton +"</td>"+
+					    "<td>" +d.amount +"</td>"+
+					   
+					    "</tr>";
+					    console.log(html);
+					    $('#myTransactions tbody').append(html);
+						
+							
+						
+					};
+				
+				});
+			});
+		</script>
+  </body>
+</html>
