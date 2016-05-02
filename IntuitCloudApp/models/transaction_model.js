@@ -5,12 +5,19 @@ var mongoose = require('mongoose');
 var transactionSchema = mongoose.Schema({
 	
   
-            type               : String,
+           type               : String,
             user_id           : {
     		 type: mongoose.Schema.Types.ObjectId,
              ref: 'Users'},
            
-            amount            : Number
+             TotalAmt            : Number,
+             DueDate            : Date,
+             ref_id : String,
+		     vendor_name : String,
+		     vendor_id : String,
+		     status : String,
+		     response: String
+  
           
   
 
