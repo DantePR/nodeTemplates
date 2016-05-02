@@ -5,11 +5,14 @@ var mongoose = require('mongoose');
 var userSchema = mongoose.Schema({
 	
   
-            name               : String,
+     name               : String,
             
-            consumer_token      : String,
-            consumer_pass       : String
-       
+             qbo_consumerKey              : String,
+			 qbo_consumerSecret              : String,
+			 qbo_oauthToken              : String,
+			 qbo_oauthTokenSecret              : String,
+			 qbo_companyID        : String,
+			 wells_bearerId       : String
   
 
 }); 
